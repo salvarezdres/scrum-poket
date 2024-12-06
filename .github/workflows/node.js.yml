@@ -69,4 +69,4 @@ jobs:
       - run: echo "Building the application..."
       - run: npm run build
       - run: echo "Deploying to Firebase Production..."
-      - run: firebase deploy --project ${{ secrets.PROYECT_ID }} --token ${{ secrets.FIREBASE_TOKEN }}
+      - run: firebase deploy --project scrum-poket-453df --token ${{ secrets.FIREBASE_SERVICE_ACCOUNT_SCRUM_POKET_453DF }}
