@@ -1,9 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { auth } from '../firebase';
 
 const Home = () => {
   const [name, setName] = useState('');
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!auth.currentUser) {
+      navigate('/login');
+    }
+  }, [navigate]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
