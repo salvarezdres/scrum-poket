@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './components/Home';
+import Login from './components/Login';
 import Menu from './components/Menu';
 import CreateRoom from './components/CreateRoom';
 import JoinRoom from './components/JoinRoom';
@@ -10,6 +11,7 @@ function App() {
   return (
     <Router>
       <Routes>
+        <Route path="/login" element={<Login />} />
         <Route path="/" element={<Home />} />
         <Route path="/menu" element={<Menu />} />
         <Route path="/create-room" element={<CreateRoom />} />
