@@ -7,9 +7,11 @@ const Room = () => {
     { name: 'Usuario 1', vote: null },
     { name: 'Usuario 2', vote: null },
     { name: 'Usuario 3', vote: null },
-  ]); // Ejemplo inicial
+  ]);
 
-  const fibonacciNumbers = [1, 2, 3, 5, 8, 13, 21, 34, 55];
+  const stories = ['Historia 1', 'Historia 2', 'Historia 3'];
+
+  const fibonacciNumbers = [1, 2, 3, 5, 8, 13];
 
   const handleVote = (number) => {
     setSelectedCard(number);
@@ -25,26 +27,38 @@ const Room = () => {
   return (
     <div>
       <h1>Sala de Votación</h1>
-      <h2>Participantes</h2>
-      <ul>
-        {participants.map((participant, index) => (
-          <li key={index}>
-            {participant.name}: {participant.vote || 'Sin voto'}
-          </li>
-        ))}
-      </ul>
-      <h2>Selecciona tu voto</h2>
-      <div>
-        {fibonacciNumbers.map((num) => (
-          <FibonacciCard
-            key={num}
-            number={num}
-            isSelected={selectedCard === num}
-            onClick={() => handleVote(num)}
-          />
-        ))}
+      <div style={{ display: 'flex' }}>
+        <div style={{ width: '40%', marginRight: '20px' }}>
+          <h2>Participantes</h2>
+          <ul>
+            {participants.map((participant, index) => (
+              <li key={index}>
+                {participant.name}: {participant.vote || 'Sin voto'}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div style={{ width: '60%' }}>
+          <h2>Historias</h2>
+          <ul>
+            {stories.map((story, idx) => (
+              <li key={idx}>{story}</li>
+            ))}
+          </ul>
+          <h2>Selecciona tu voto</h2>
+          <div>
+            {fibonacciNumbers.map((num) => (
+              <FibonacciCard
+                key={num}
+                number={num}
+                isSelected={selectedCard === num}
+                onClick={() => handleVote(num)}
+              />
+            ))}
+          </div>
+          {selectedCard && <p>Tu selección: {selectedCard}</p>}
+        </div>
       </div>
-      {selectedCard && <p>Tu selección: {selectedCard}</p>}
     </div>
   );
 };

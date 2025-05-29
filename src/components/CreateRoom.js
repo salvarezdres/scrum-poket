@@ -5,7 +5,8 @@ const CreateRoom = () => {
   const navigate = useNavigate();
 
   const handleCreateRoom = () => {
-    const roomId = Math.random().toString(36).substr(2, 6);
+    const random = Math.random().toString(36).substring(2, 8);
+    const roomId = `${Date.now().toString(36)}${random}`;
     navigate(`/room/${roomId}`);
   };
 
